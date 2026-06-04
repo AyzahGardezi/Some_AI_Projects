@@ -1,10 +1,17 @@
 # run using: uv run main.py
 from langchain_core.messages import HumanMessage
 from langchain_groq import ChatGroq
+from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
 from dotenv import load_dotenv
 
 load_dotenv()
+
+@tool
+def calculator (a: float, b:float) -> str:
+    """performs sum calculations"""
+    print("calculator called")
+    return f"The sum of {a} + {b} is {a+b}"
 
 def main():
     model = ChatGroq(
@@ -12,7 +19,7 @@ def main():
         temperature=0
     )
 
-    tools = []
+    tools = [calculator]
     agent_executor = create_react_agent(model, tools)
 
     print("AI assistant launched. Type 'quit' to exit.")

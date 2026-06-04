@@ -1,5 +1,5 @@
 # the same code, just with a nice interface using the streamlit library
-# run using: streamlit run app.py
+# run using: uv run streamlit run app.py
 
 import streamlit as st
 from dotenv import load_dotenv
