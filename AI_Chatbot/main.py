@@ -1,3 +1,4 @@
+# run using: uv run main.py
 from langchain_core.messages import HumanMessage
 from langchain_groq import ChatGroq
 from langgraph.prebuilt import create_react_agent
